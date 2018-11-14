@@ -18,7 +18,7 @@ import os
 from git import Repo
 
 
-COMMITS_TO_PRINT = 1
+COMMITS_TO_PRINT = 3
 
 
 def print_commit(commit):
@@ -26,11 +26,11 @@ def print_commit(commit):
     print(str(commit.hexsha))
     t=repo.head.commit
     print("hello")
-    #my_string=str(repo.git.diff(t))
-    #temp=my_string.split("a",1)[1]
-    #temp2=temp.split(" ",1)[0]
-    #print(temp2)
-    print(str(repo.git.diff(t)))
+    my_string=str(repo.git.diff(t))
+    temp=my_string.split("a",1)[1]
+    temp2=temp.split(" ",1)[0]
+    print(temp2)
+    #print(str(repo.git.diff(t)))
     print("hello2")
     #print("\"{}\" by {} ({})".format(commit.summary,commit.author.name,commit.author.email))
     print(str(commit.authored_datetime))
@@ -47,7 +47,7 @@ def print_repository(repo):
 
 
 if __name__ == "__main__":
-    repo_path = os.getenv('/Users/moabbasi/Desktop/pythonProject')
+    repo_path = os.getenv('https://github.com/farmanAbbasi/helloWorldJenkins')
     #repo = git.Repo(os.path.dirname())
     # Repo object used to programmatically interact with Git repositories
     repo = Repo(repo_path,search_parent_directories=True)
