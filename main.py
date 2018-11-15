@@ -23,7 +23,6 @@ def print_commit(commit):
         print("Response failed")
     
    											
-
 def print_repository(repo):
     print('Repo description: {}'.format(repo.description))
     print('Repo active branch is {}'.format(repo.active_branch))
