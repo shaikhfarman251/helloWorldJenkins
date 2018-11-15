@@ -12,12 +12,13 @@ def print_commit(commit):
     temp=my_string.split("diff --git a",1)[1]
     temp2=temp.split(" ",1)[0]   
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
+    temp2=''
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
     content=r.content.decode('ascii')
     f = open(filename,'w')
     f.write(content)
-    print("Content written at Test1.txt")
+    print("Content written at Test1.txt...")
    											
 
 def print_repository(repo):
