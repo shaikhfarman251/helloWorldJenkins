@@ -11,13 +11,15 @@ def print_commit(commit):
     changed_file=str(repo.git.diff(t,name_only=True))
     print(changed_file)
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/"+str(commit.hexsha)+"/"+changed_file
-    filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
-    print(r)
-    content=r.content.decode('ascii')
-    f = open(filename,'w')
-    f.write(content)
-    print("Content written at Test1.txt...")
+    if r.status_code==200:
+        filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
+        content=r.content.decode('ascii')
+        f = open(filename,'w')
+        f.write(content)
+        print("Content written at Test1.txt...")
+    else:
+        print("Response failed")
     
    											
 
