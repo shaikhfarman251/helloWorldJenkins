@@ -13,6 +13,7 @@ def print_commit(commit):
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/"+str(commit.hexsha)+"/"+changed_file
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
+    print(r)
     content=r.content.decode('ascii')
     f = open(filename,'w')
     f.write(content)
