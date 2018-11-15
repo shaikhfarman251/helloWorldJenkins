@@ -10,7 +10,6 @@ def print_commit(commit):
     t=repo.head.commit.tree
     changed_file=str(repo.git.diff(t,name_only=True))
     print(type(changed_file))
-    
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+"/"+changed_file
     r = requests.get(url)
     if r.status_code==200:
