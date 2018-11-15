@@ -9,16 +9,22 @@ def print_commit(commit):
     print(str(commit.hexsha))
     t=repo.head.commit.tree
     my_string=str(repo.git.diff(t))
+    temp=''
     temp=my_string.split("diff --git a",1)[1]
+    try:
+        if not temp:
+            raise ValueError('Error')
+    except ValueError as e:
+        print(e)   
     temp2=temp.split(" ",1)[0]   
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
-    temp2=''
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
     content=r.content.decode('ascii')
     f = open(filename,'w')
     f.write(content)
     print("Content written at Test1.txt...")
+    
    											
 
 def print_repository(repo):
