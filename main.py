@@ -17,7 +17,7 @@ def print_commit(commit):
     content=r.content.decode('ascii')
     f = open(filename,'w')
     f.write(content)
-    print("Content written at C:\Users\moabbasi\Desktop\gitFiles\Test1.txt")
+    print("Content written at Test1.txt")
    											
 
 def print_repository(repo):
