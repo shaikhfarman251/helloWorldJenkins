@@ -13,7 +13,7 @@ content=r.content.decode('ascii')
 f = open(filename,'w')
 f.write(content)
 print(r.content)'''
-
+import requests
 import os
 from git import Repo
 
@@ -30,7 +30,13 @@ def print_commit(commit):
     temp2=temp.split(" ",1)[0]
     print(temp2)
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
-    print(url)
+    filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
+    r = requests.get(url)
+    content=r.content.decode('ascii')
+
+    f = open(filename,'w')
+    f.write(content)
+    print(r.content)
     #print(str(repo.git.diff(t)))
     #print("\"{}\" by {} ({})".format(commit.summary,commit.author.name,commit.author.email))
     print(str(commit.authored_datetime))
