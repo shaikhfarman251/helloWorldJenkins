@@ -9,6 +9,7 @@ def print_commit(commit):
     print(str(commit.hexsha))
     t=repo.head.commit.tree
     changed_file=str(repo.git.diff(t,name_only=True))
+    print(changed_file)
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master/"+changed_file
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
