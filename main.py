@@ -8,11 +8,8 @@ def print_commit(commit):
     print('----')
     print(str(commit.hexsha))
     t=repo.head.commit.tree
-    my_string=str(repo.git.diff(t))
-    temp=''
-    temp=my_string.split("diff --git a",1)[1] 
-    temp2=temp.split(" ",1)[0]   
-    url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
+    changed_file=str(repo.git.diff(t,name_only=True))
+    url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master/"+changed_file
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
     r = requests.get(url)
     content=r.content.decode('ascii')
