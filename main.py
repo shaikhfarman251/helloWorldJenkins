@@ -18,20 +18,20 @@ import os
 from git import Repo
 
 
-COMMITS_TO_PRINT = 3
+COMMITS_TO_PRINT = 1
 
 
 def print_commit(commit):
     print('----')
     print(str(commit.hexsha))
-    t=repo.head.commit
-    print("hello")
+    t=repo.head.commit.tree
     my_string=str(repo.git.diff(t))
-    temp=my_string.split("a",1)[1]
+    temp=my_string.split("diff --git a")[1]
     temp2=temp.split(" ",1)[0]
     print(temp2)
+    url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
+    print(url)
     #print(str(repo.git.diff(t)))
-    print("hello2")
     #print("\"{}\" by {} ({})".format(commit.summary,commit.author.name,commit.author.email))
     print(str(commit.authored_datetime))
     #print(str("count: {} and size: {}".format(commit.count(),commit.size)))
