@@ -10,12 +10,7 @@ def print_commit(commit):
     t=repo.head.commit.tree
     my_string=str(repo.git.diff(t))
     temp=''
-    temp=my_string.split("diff --git a",1)[1]
-    try:
-        if not temp:
-            raise ValueError('Error')
-    except ValueError as e:
-        print(e)   
+    temp=my_string.split("diff --git a",1)[1] 
     temp2=temp.split(" ",1)[0]   
     url = "https://raw.githubusercontent.com/farmanAbbasi/helloWorldJenkins/master"+temp2
     filename = 'C:/Users/moabbasi/Desktop/gitFiles/Test1.txt'
